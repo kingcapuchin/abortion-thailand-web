@@ -6,7 +6,7 @@ export const en = {
     international: 'International',
     about: 'About',
     contact: 'Contact / Book',
-    blog: 'Blog',
+    blog: 'Health Articles',
   },
   hero: {
     badge: 'Accurate Medical Information',
@@ -139,7 +139,7 @@ export const en = {
     admin: 'Admin',
   },
   blog: {
-    title: 'Blog',
+    title: 'Health Articles',
     subtitle: 'Articles and news about pregnancy termination',
   },
   mission: {

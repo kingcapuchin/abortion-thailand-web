@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { FAQAccordion } from '@/components/FAQAccordion';
+import { FAQSearch } from '@/components/FAQSearch';
 import { getDictionary, Lang } from '@/content';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -56,7 +56,7 @@ export default async function FAQPage({ params }: { params: Promise<{ lang: stri
         </div>
 
         {/* FAQ Content */}
-        <FAQAccordion dict={dict} />
+        <FAQSearch dict={dict} lang={lang as Lang} />
 
         {/* Still Have Questions CTA */}
         <div className="mt-12 bg-[#7FB069] rounded-2xl p-6 md:p-8 text-center">

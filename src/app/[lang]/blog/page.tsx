@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const isTh = lang === 'th';
   
   return {
-    title: isTh ? 'บล็อก - ความรู้และข่าวสาร' : 'Blog - Knowledge & News',
+    title: isTh ? 'บทความสุขภาพ - ความรู้และข่าวสาร' : 'Health Articles - Knowledge & News',
     description: isTh
       ? 'บทความและข่าวสารเกี่ยวกับการยุติการตั้งครรภ์ ความรู้ทางการแพทย์ และสิทธิของผู้ป่วย'
       : 'Articles and news about pregnancy termination, medical knowledge, and patient rights',
@@ -59,7 +59,7 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-[#2D3436] mb-4">
-            {isTh ? 'บล็อก' : 'Blog'}
+            {isTh ? 'บทความสุขภาพ' : 'Health Articles'}
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             {isTh
@@ -108,9 +108,11 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
 
               {/* Post Content */}
               <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">
-                  {formatDate(post.date)}
-                </p>
+                <div className="flex items-center gap-3 text-sm text-gray-500 mb-2">
+                  <span>{formatDate(post.date)}</span>
+                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                  <span>{Math.ceil(post.content.split(/\s+/).length / (isTh ? 200 : 250))} {isTh ? 'นาที อ่าน' : 'min read'}</span>
+                </div>
                 <h2 className="text-lg font-semibold text-[#2D3436] mb-2 group-hover:text-[#7FB069] transition-colors">
                   {post.title}
                 </h2>
