@@ -188,10 +188,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.excerpt,
     image: post.imageUrl,
     datePublished: post.date,
+    dateModified: post.date,
     author: {
-      '@type': 'Organization',
-      name: 'Abortion Thailand',
-      url: 'https://abortionthailand.com',
+      '@type': 'Person',
+      name: isTh ? 'ทีมงาน Abortion Thailand' : 'Abortion Thailand Team',
+      jobTitle: isTh ? 'ทีมแพทย์ผู้เชี่ยวชาญ' : 'Medical Expert Team',
     },
     publisher: {
       '@type': 'Organization',
@@ -291,9 +292,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
           
           {/* Title */}
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#2D3436] mb-6 leading-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#2D3436] mb-4 leading-tight">
             {post.title}
           </h1>
+          
+          {/* Author Byline */}
+          <div className="flex items-center gap-2 text-sm text-gray-500 mb-6 pb-6 border-b border-gray-100">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span>
+              {isTh ? 'โดย ทีมงาน Abortion Thailand' : 'By Abortion Thailand Team'}
+            </span>
+            <span className="text-gray-300">•</span>
+            <span>
+              {isTh ? 'ตรวจสอบโดย: ทีมแพทย์ผู้เชี่ยวชาญ' : 'Reviewed by: Medical Expert Team'}
+            </span>
+          </div>
           
           {/* Excerpt / Lead */}
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-[#7FB069] pl-4">

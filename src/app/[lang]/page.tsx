@@ -34,6 +34,25 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const mission = t.mission;
   const whyUs = t.whyUs;
 
+  // Organization JSON-LD schema
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Abortion Thailand',
+    url: 'https://abortionthailand.com',
+    description: isTh
+      ? 'เว็บไซต์ให้ข้อมูลทางการแพทย์ที่ถูกต้องสำหรับการยุติการตั้งครรภ์ในประเทศไทย บริการที่ปลอดภัย เป็นความลับ และถูกกฎหมาย'
+      : 'Comprehensive medical information portal for pregnancy termination in Thailand. Safe, legal, and confidential services.',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'info@abortionthailand.com',
+      contactOption: '24/7',
+    },
+    sameAs: [
+      'https://line.me/R/ti/p/@895vdurk',
+    ],
+  };
+
   const services = [
     {
       ...t.services.medication,
@@ -78,6 +97,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
   return (
     <div>
+      {/* Organization JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+
       {/* Hero Section with Warm Medical Image */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#7FB069]/10 via-[#F5F0E8] to-[#E8A598]/10">
         <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">

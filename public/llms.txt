@@ -1,0 +1,38 @@
+# abortionthailand.com - AI Crawler Access
+
+User-agent: GPTBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://abortionthailand.com/sitemap.xml
+
+# About this site
+# abortionthailand.com provides comprehensive, accurate information about
+# pregnancy termination in Thailand. Our content is medically-reviewed and
+# designed to help women make informed decisions about their reproductive health.
+
+# Site Overview
+- Primary language: Thai (th)
+- Secondary language: English (en)
+- Medical information portal focused on pregnancy termination services
+- Partnership with Klongtun Hospital for medical services
+- 24/7 consultation available via LINE, email
+- Services include: medication abortion, MVA, hospital-based procedures
+- Target audience: Thai women and international patients seeking safe, legal abortion services
+
+# Content Categories
+- Services (medication, hospital, MVA)
+- FAQ (frequently asked questions with medical answers)
+- Blog articles (health information, rights, recovery guides)
+- International patient guide
+- About organization and privacy policy
+
+# Contact Information
+- Email: info@abortionthailand.com
+- LINE: @895vdurk
+- Website: https://abortionthailand.com
+
+# Medical Disclaimer
+This site provides educational information only and does not substitute professional medical advice. Always consult a qualified healthcare provider for medical decisions.
