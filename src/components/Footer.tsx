@@ -8,6 +8,7 @@ interface FooterProps {
 
 export function Footer({ lang, dict }: FooterProps) {
   const t = dict.footer;
+  const isTh = lang === 'th';
 
   return (
     <footer className="bg-[#2D3436] text-white">
@@ -26,12 +27,26 @@ export function Footer({ lang, dict }: FooterProps) {
             <p className="text-sm text-gray-400 leading-relaxed">
               {t.partner}
             </p>
+            
+            {/* Email Contact */}
+            <div className="mt-4">
+              <p className="text-sm text-gray-400 mb-1">{isTh ? 'ติดต่อเรา' : 'Contact us'}</p>
+              <a 
+                href="mailto:info@abortionthailand.com" 
+                className="text-[#7FB069] hover:underline flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                info@abortionthailand.com
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide">
-              {lang === 'th' ? 'ลิงก์ด่วน' : 'Quick Links'}
+              {isTh ? 'ลิงก์ด่วน' : 'Quick Links'}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -50,6 +65,11 @@ export function Footer({ lang, dict }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href={`/${lang}/blog`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {dict.nav.blog}
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${lang}/about`} className="text-sm text-gray-400 hover:text-white transition-colors">
                   {dict.nav.about}
                 </Link>
@@ -57,31 +77,61 @@ export function Footer({ lang, dict }: FooterProps) {
             </ul>
           </div>
 
-          {/* Emergency & Contact */}
+          {/* Contact & Channels */}
           <div>
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide">
-              {lang === 'th' ? 'ติดต่อฉุกเฉิน' : 'Emergency'}
+              {isTh ? 'สอบถาม / จองคิว' : 'Inquire / Book'}
             </h3>
-            <div className="flex items-center gap-2 text-[#E8A598] mb-2">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span className="font-semibold">{t.emergency}</span>
+            
+            {/* Multi-Channel CTA */}
+            <div className="space-y-3">
+              <a
+                href="https://line.me/R/ti/p/@895vdurk"
+                target="_blank"
+                className="flex items-center gap-3 text-sm text-gray-400 hover:text-[#7FB069] transition-colors"
+              >
+                <span className="text-lg">💚</span>
+                <span>LINE: @895vdurk</span>
+              </a>
+              <a
+                href="mailto:info@abortionthailand.com"
+                className="flex items-center gap-3 text-sm text-gray-400 hover:text-[#7FB069] transition-colors"
+              >
+                <span className="text-lg">📧</span>
+                <span>info@abortionthailand.com</span>
+              </a>
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <span className="text-lg">📱</span>
+                <span>WhatsApp (pending)</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <span className="text-lg">📘</span>
+                <span>Facebook (pending)</span>
+              </div>
             </div>
-            <p className="text-sm text-gray-400 mt-4">
-              {t.disclaimer}
-            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-400">
-            {t.copyright}
-          </p>
-          <Link href={`/${lang}/about`} className="text-sm text-gray-400 hover:text-white transition-colors">
-            {t.privacy}
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <p className="text-sm text-gray-400">
+              {t.copyright}
+            </p>
+            <Link href={`/${lang}/about`} className="text-sm text-gray-400 hover:text-white transition-colors">
+              {t.privacy}
+            </Link>
+          </div>
+          
+          {/* Admin Link - Hidden/Subtle */}
+          <a 
+            href="https://abortion-thailand-web.vercel.app/admin" 
+            target="_blank"
+            className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
+            title="Admin Dashboard"
+          >
+            {t.admin}
+          </a>
         </div>
       </div>
     </footer>

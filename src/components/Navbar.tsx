@@ -19,6 +19,7 @@ export function Navbar({ lang, dict }: NavbarProps) {
     { href: `/${lang}/services`, label: t.services },
     { href: `/${lang}/faq`, label: t.faq },
     { href: `/${lang}/international`, label: t.international },
+    { href: `/${lang}/blog`, label: t.blog },
     { href: `/${lang}/about`, label: t.about },
   ];
 

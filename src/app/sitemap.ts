@@ -3,6 +3,15 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://abortionthailand.com';
   
+  // Blog post slugs
+  const blogPostsTh = [
+    'what-to-expect-medication-abortion',
+    'understanding-your-rights',
+    'choosing-right-method',
+    'aftercare-recovery',
+    'for-international-patients',
+  ];
+  
   return [
     {
       url: baseUrl,
@@ -70,5 +79,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    // Blog pages
+    {
+      url: `${baseUrl}/th/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/en/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    // Blog post pages
+    ...blogPostsTh.map((slug) => ({
+      url: `${baseUrl}/th/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+    ...blogPostsTh.map((slug) => ({
+      url: `${baseUrl}/en/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
   ];
 }

@@ -6,6 +6,7 @@ export const en = {
     international: 'International',
     about: 'About',
     contact: 'Contact / Book',
+    blog: 'Blog',
   },
   hero: {
     badge: 'Accurate Medical Information',
@@ -13,7 +14,7 @@ export const en = {
     subheadline: 'You Deserve the Best Care',
     description: 'We provide accurate, safe, and confidential information about pregnancy termination in Thailand',
     cta: 'Contact / Book Appointment',
-    emergency: 'Emergency 1663',
+    emergency: 'Contact: info@abortionthailand.com',
   },
   trust: {
     badge: 'Reviewed by Medical Professionals',
@@ -132,9 +133,71 @@ export const en = {
   footer: {
     disclaimer: 'Information on this website is for educational purposes only. Please consult a doctor for medical advice.',
     privacy: 'Privacy Policy',
-    partner: 'In partnership with Klongtun Hospital',
-    emergency: 'Emergency: 1663',
+    partner: 'Services provided by expert medical team',
+    emergency: 'Contact: info@abortionthailand.com',
     copyright: '© 2024 All Rights Reserved',
+    admin: 'Admin',
+  },
+  blog: {
+    title: 'Blog',
+    subtitle: 'Articles and news about pregnancy termination',
+  },
+  mission: {
+    title: 'Our Mission',
+    subtitle: 'We are committed to providing compassionate and understanding care',
+    items: {
+      knowledge: {
+        title: 'Provide knowledge on pregnancy termination',
+        description: 'Accurate and unbiased medical information',
+      },
+      counseling: {
+        title: 'Provide counseling',
+        description: 'Confidential expert medical advice',
+      },
+      support: {
+        title: 'Provide support / Non-judgmental',
+        description: 'We understand and are ready to listen without judgment',
+      },
+      booking: {
+        title: 'Book appointment via Emmy',
+        description: 'Convenient and fast appointment service',
+      },
+      campaign: {
+        title: 'Campaign against illegal drugs',
+        description: 'No illegal abortion for your safety',
+      },
+    },
+  },
+  whyUs: {
+    title: 'Why Choose Us',
+    items: {
+      confidential: {
+        title: 'Confidential',
+        description: 'Your information is strictly kept confidential',
+      },
+      expert: {
+        title: 'Expert Doctors',
+        description: 'Experienced and certified medical team',
+      },
+      support: {
+        title: '24/7 Support',
+        description: 'Support team available at all times',
+      },
+      safe: {
+        title: 'Safe & Legal',
+        description: 'Safe, legal, and standardized services',
+      },
+    },
+  },
+  contactSection: {
+    title: 'Contact Us',
+    subtitle: 'We are ready to serve and answer your questions',
+    email: 'Email',
+    emailAddress: 'info@abortionthailand.com',
+    line: 'LINE',
+    lineId: '@emmy',
+    hours: 'Hours',
+    hoursValue: '24 hours',
   },
   international: {
     title: 'For International Patients',
