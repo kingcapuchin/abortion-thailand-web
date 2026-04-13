@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abortion Thailand Website
 
-## Getting Started
+Next.js 14 website for abortionthailand.com with TH/EN language support, SEO optimization, and Schema.org markup.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS
+- **Languages:** TypeScript
+- **Fonts:** Inter (EN), Prompt & Sarabun (TH)
+- **Deployment:** Vercel-ready
+
+## Project Structure
+
+```
+/src
+├── app/
+│   ├── [lang]/           # Dynamic i18n routes (th/en)
+│   │   ├── page.tsx      # Landing page
+│   │   ├── services/     # Services page
+│   │   ├── faq/          # FAQ page
+│   │   ├── international/ # International patients page
+│   │   └── about/        # About page
+│   ├── layout.tsx        # Root layout with GTM
+│   ├── sitemap.ts       # Sitemap.xml
+│   └── robots.ts        # robots.txt
+├── components/           # Reusable UI components
+├── content/              # TH/EN translations
+└── lib/                  # Utilities (GTM config)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ✅ TH (primary) + EN language toggle
+- ✅ Schema.org FAQPage markup (for featured snippets)
+- ✅ Schema.org Organization markup
+- ✅ hreflang tags for SEO
+- ✅ Sitemap.xml and robots.txt
+- ✅ Mobile-first responsive design
+- ✅ GTM/GA4 ready (needs ID in .env)
+- ✅ Medical disclaimer on every page
+- ✅ No government/hospital logos
+- ✅ Privacy-first (no data collection forms)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+```bash
+# Google Tag Manager
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 
-To learn more about Next.js, take a look at the following resources:
+# Google Analytics 4
+NEXT_PUBLIC_GA_ID=G-XXXXXXX
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a new Vercel project:
+```bash
+vercel login
+vercel new
+```
 
-## Deploy on Vercel
+2. Set environment variables in Vercel dashboard:
+   - `NEXT_PUBLIC_GTM_ID`
+   - `NEXT_PUBLIC_GA_ID`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Connect your GitHub repo or deploy directly:
+```bash
+vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Add custom domain `abortionthailand.com` in Vercel dashboard
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Build
+
+```bash
+npm run build
+```
+
+## Git Push
+
+```bash
+# Add remote if not set
+git remote add origin https://github.com/kingcapuchin/abortion-thailand-web.git
+
+# Push
+git push -u origin master
+```
+
+**Note:** Repository must be created on GitHub first.
+
+## Content Notes
+
+- All medical information is for educational purposes only
+- Partner disclosure: Klongtun Hospital (text only, no logos)
+- Emergency hotline: 1663
+- LINE contact: @emmy (placeholder link)
