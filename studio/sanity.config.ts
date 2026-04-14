@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'abortion-thailand',
   title: 'Abortion Thailand CMS',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'YOUR_PROJECT_ID',
-  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '73gs3oyp',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production_',
 
   plugins: [
     structureTool({
