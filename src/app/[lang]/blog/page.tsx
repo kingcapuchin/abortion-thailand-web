@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getBlogPosts } from '@/content/blog';
+import { getBlogPosts } from '@/lib/blog-data';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function BlogPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const posts = getBlogPosts(lang);
+  const posts = await getBlogPosts(lang);
   const isTh = lang === 'th';
 
   const formatDate = (dateStr: string) => {

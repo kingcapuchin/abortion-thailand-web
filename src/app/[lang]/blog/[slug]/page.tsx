@@ -1,28 +1,15 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBlogPost, getBlogPosts } from '@/content/blog';
+import { getBlogPost, getBlogPosts } from '@/lib/blog-data';
 
 interface BlogPostPageProps {
   params: Promise<{ lang: string; slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const params: { lang: string; slug: string }[] = [];
-  
-  ['th', 'en'].forEach((lang) => {
-    const posts = getBlogPosts(lang);
-    posts.forEach((post) => {
-      params.push({ lang, slug: post.slug });
-    });
-  });
-  
-  return params;
-}
-
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { lang, slug } = await params;
-  const post = getBlogPost(lang, slug);
+  const post = await getBlogPost(lang, slug);
   
   if (!post) {
     return { title: 'Post Not Found' };
@@ -53,6 +40,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       ],
     },
   };
+}
+
+export async function generateStaticParams() {
+  const params: { lang: string; slug: string }[] = [];
+  
+  for (const lang of ['th', 'en']) {
+    const staticPosts = await getBlogPosts(lang);
+    staticPosts.forEach((post: any) => {
+      params.push({ lang, slug: post.slug });
+    });
+  }
+  
+  return params;
 }
 
 // Calculate estimated read time
@@ -155,14 +155,14 @@ function generateTOC(content: string): { level: number; text: string; id: string
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { lang, slug } = await params;
-  const post = getBlogPost(lang, slug);
+  const post = await getBlogPost(lang, slug);
   
   if (!post) {
     notFound();
   }
 
   const isTh = lang === 'th';
-  const allPosts = getBlogPosts(lang);
+  const allPosts = await getBlogPosts(lang);
   const relatedPosts = allPosts
     .filter((p) => p.slug !== slug && p.category === post.category)
     .slice(0, 2);
