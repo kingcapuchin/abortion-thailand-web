@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abortion Thailand - Wireframe</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Navbar */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee; }
+    nav .lang { color: #7FB069; font-weight: 600; }
+    nav .logo { font-size: 20px; font-weight: 700; }
+    nav .menu { color: #666; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #F5F0E8 0%, #E8F5E9 100%); padding: 80px 20px; text-align: center; }
+    .hero h1 { font-size: 48px; color: #2E5A3A; margin-bottom: 20px; }
+    .hero-image { width: 100%; max-width: 600px; height: 300px; background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); margin: 30px auto; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px; }
+    .hero p { font-size: 22px; color: #555; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-btn { background: #7FB069; color: white; padding: 18px 40px; border: none; border-radius: 30px; font-size: 18px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
+    .cta-btn:hover { background: #6B9B5A; }
+    
+    /* Sections */
+    .section { padding: 60px 20px; }
+    .section-title { font-size: 32px; color: #2E5A3A; text-align: center; margin-bottom: 40px; }
+    .section-subtitle { font-size: 20px; color: #555; text-align: center; margin-bottom: 20px; }
+    
+    /* Support Section */
+    .support { background: #F5F0E8; text-align: center; }
+    .support p { font-size: 20px; color: #555; max-width: 700px; margin: 0 auto 15px; }
+    .support-note { color: #7FB069; font-size: 18px; }
+    
+    /* Info Grid */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+    .info-card { padding: 25px; border-radius: 15px; }
+    .info-card.safe { background: #D4EDDA; border-left: 5px solid #7FB069; }
+    .info-card.danger { background: #F8D7DA; border-left: 5px solid #DC3545; }
+    .info-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .info-card.safe h3 { color: #2E5A3A; }
+    .info-card.danger h3 { color: #721C24; }
+    .info-card p { font-size: 16px; color: #555; }
+    .info-icon { font-size: 30px; margin-bottom: 10px; }
+    
+    /* Blog Grid */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .blog-card { background: white; border: 1px solid #eee; border-radius: 15px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .blog-img { width: 100%; height: 150px; background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); display: flex; align-items: center; justify-content: center; color: #7FB069; font-size: 40px; }
+    .blog-content { padding: 20px; }
+    .blog-content h4 { font-size: 18px; color: #2E5A3A; margin-bottom: 10px; }
+    .blog-content p { font-size: 14px; color: #666; margin-bottom: 15px; }
+    .blog-link { color: #7FB069; text-decoration: none; font-weight: 600; }
+    .view-all { text-align: center; margin-top: 40px; }
+    .view-all a { color: #7FB069; font-weight: 600; text-decoration: none; font-size: 18px; }
+    
+    /* Steps */
+    .steps { background: #F9F9F9; }
+    .steps-container { display: flex; justify-content: center; gap: 60px; max-width: 900px; margin: 0 auto; }
+    .step { text-align: center; }
+    .step-num { font-size: 60px; color: #7FB069; margin-bottom: 10px; }
+    .step p { font-size: 16px; color: #555; max-width: 200px; }
+    
+    /* International */
+    .international { background: linear-gradient(135deg, #E8F5E9 0%, #F5F0E8 100%); text-align: center; }
+    .flags { font-size: 48px; margin-bottom: 20px; }
+    .int-langs { font-size: 20px; color: #555; }
+    
+    /* FAQ */
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { padding: 20px; border-bottom: 1px solid #eee; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-item:hover { background: #F9F9F9; }
+    .faq-q { font-size: 18px; color: #333; }
+    .faq-icon { color: #7FB069; font-size: 24px; }
+    
+    /* Warning */
+    .warning { background: #FFF3CD; border-left: 5px solid #FFC107; padding: 30px; margin: 0 20px 40px; border-radius: 10px; }
+    .warning h2 { color: #856404; margin-bottom: 15px; }
+    .warning p { color: #856404; font-size: 18px; margin-bottom: 10px; }
+    
+    /* Footer */
+    footer { background: #2E5A3A; color: white; padding: 40px 20px; text-align: center; }
+    footer p { margin-bottom: 10px; }
+    
+    /* Floating Button */
+    .floating { position: fixed; bottom: 30px; right: 30px; background: #7FB069; color: white; padding: 15px 30px; border-radius: 30px; font-size: 16px; font-weight: 600; box-shadow: 0 5px 20px rgba(127, 176, 105, 0.4); cursor: pointer; display: flex; align-items: center; gap: 10px; }
+    .floating:hover { background: #6B9B5A; }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .steps-container { flex-direction: column; gap: 30px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="container">
+  <span class="lang">🌐 TH / EN</span>
+  <strong class="logo">ABORTION THAILAND</strong>
+  <span class="menu">☰ Menu</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>YOU'RE NOT ALONE</h1>
+  <div class="hero-image">🤍 Warm Image Placeholder</div>
+  <p>ไม่ว่าคุณจะเจอสถานการณ์ไหน<br>เราพร้อมเป็นที่พึ่งให้คุณ</p>
+  <button class="cta-btn">💬 สอบถามกับ Emmy (จองคิวโรงพยาบาล)</button>
+</section>
+
+<!-- YOU'RE NOT ALONE -->
+<section class="section support">
+  <h2 class="section-title">YOU'RE NOT ALONE</h2>
+  <p class="section-subtitle">การตั้งครรภ์ที่ไม่ได้วางแผนไว้ไม่ได้หมายความว่าคุณต้องเผชิญหน้ามันคนเดียว</p>
+  <p class="support-note">💚 เราเข้าใจ... เราพร้อมรับฟัง... เราไม่ตัดสิน</p>
+</section>
+
+<!-- WHAT YOU NEED TO KNOW -->
+<section class="section">
+  <h2 class="section-title">WHAT YOU NEED TO KNOW</h2>
+  <div class="info-grid">
+    <div class="info-card safe">
+      <div class="info-icon">✅</div>
+      <h3>ข้อมูลที่ถูกต้อง</h3>
+      <p>ข้อมูลทางการแพทย์ที่ถูกต้องและปลอดภัย</p>
+    </div>
+    <div class="info-card danger">
+      <div class="info-icon">⚠️</div>
+      <h3>ยาเถื่อนอันตราย</h3>
+      <p>ซื้อจาก Internet อาจเกิดอันตรายถึงชีวิต</p>
+    </div>
+    <div class="info-card safe">
+      <div class="info-icon">🏥</div>
+      <h3>บริการที่ถูกกฎหมาย</h3>
+      <p>รพ.คลองตันให้บริการอย่างปลอดภัยและถูกต้อง</p>
+    </div>
+    <div class="info-card danger">
+      <div class="info-icon">📵</div>
+      <h3>สิ่งที่ผิดกฎหมาย</h3>
+      <p>การทำแท้งเองโดยไม่มีแพทย์ดูแล</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLES -->
+<section class="section" style="background: #FAFAFA;">
+  <h2 class="section-title">FEATURED ARTICLES</h2>
+  <div class="container">
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img">📖</div>
+        <div class="blog-content">
+          <h4>ยาทำแท้งทำงานยังไง?</h4>
+          <p>ข้อมูลเกี่ยวกับยาทำแท้ง วิธีการ และขั้นตอนการทำงานของยาแต่ละชนิด</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">⚖️</div>
+        <div class="blog-content">
+          <h4>สิทธิ์ของคุณทางกฎหมาย</h4>
+          <p>การทำแท้งในประเทศไทยถูกกฎหมายภายใต้เงื่อนไขอะไรบ้าง</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">🩺</div>
+        <div class="blog-content">
+          <h4>เตรียมตัวก่อนพบหมอ</h4>
+          <p>สิ่งที่ควรเตรียมตัวและควรรู้ก่อนเข้ารับการปรึกษา</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">⚠️</div>
+        <div class="blog-content">
+          <h4>ผลข้างเคียงที่ควรรู้</h4>
+          <p>ผลข้างเคียงที่อาจเกิดขึ้นและวิธีรับมือ</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">❓</div>
+        <div class="blog-content">
+          <h4>FAQ - คำถามที่พบบ่อย</h4>
+          <p>คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับการยุติการตั้งครรภ์</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">🌍</div>
+        <div class="blog-content">
+          <h4>บริการสำหรับต่างชาติ</h4>
+          <p>ข้อมูลสำหรับชาวต่างชาติที่ต้องการรับบริการในไทย</p>
+          <a href="#" class="blog-link">[อ่านเพิ่ม →]</a>
+        </div>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="#">[ดูบทความทั้งหมด →]</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="section steps">
+  <h2 class="section-title">WHAT TO EXPECT</h2>
+  <p class="section-subtitle">📋 ขั้นตอนการรับบริการ</p>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">①</div>
+      <p>สอบถามกับ Emmy<br>(ไม่ต้องระบุตัวตน)</p>
+    </div>
+    <div class="step">
+      <div class="step-num">②</div>
+      <p>นัดพบแพทย์<br>ตามความสะดวก</p>
+    </div>
+    <div class="step">
+      <div class="step-num">③</div>
+      <p>รับการดูแล<br>อย่างปลอดภัย</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR INTERNATIONAL -->
+<section class="section international">
+  <h2 class="section-title">FOR INTERNATIONAL</h2>
+  <div class="flags">🇹🇭 🇬🇧 🇨🇳 🇯🇵 🇰🇷</div>
+  <p class="int-langs">มีบริการภาษาอังกฤษ จีน ญี่ปุ่น เกาหลี</p>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <h2 class="section-title">FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <span class="faq-q">▼ ค่าใช้จ่ายเท่าไหร่?</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">▶ ตั้งครรภ์กี่สัปดาห์ถึงทำได้?</span>
+      <span class="faq-icon">▶</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">▶ มีผลข้างเคียงไหม?</span>
+      <span class="faq-icon">▶</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">▶ ข้อมูลถูกเป็นความลัดไหม?</span>
+      <span class="faq-icon">▶</span>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORTANT WARNING -->
+<div class="container">
+  <div class="warning">
+    <h2>⚠️ IMPORTANT</h2>
+    <p>"ยาที่ซื้อจาก Internet หรือร้านขายยาเถื่อน อาจไม่แท้และอาจเกิดอันตรายถึงชีวิตได้"</p>
+    <p>"การทำแท้งโดยไม่มีแพทย์ดูแลผิดกฎหมาย"</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>ABORTION THAILAND</p>
+  <p>ข้อมูลที่ถูกต้องสำหรับการยุติการตั้งครรภ์ในประเทศไทย</p>
+  <p style="margin-top: 20px; font-size: 14px;">info@abortionthailand.com</p>
+</footer>
+
+<!-- FLOATING BUTTON -->
+<div class="floating">
+  💬 สอบถาม/จองคิว
+</div>
+
+</body>
+</html>
