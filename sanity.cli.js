@@ -6,3 +6,4 @@ module.exports = defineCliConfig({
     dataset: 'production_',
   },
 })
+deployment: { appId: "go5jr0fbpk5h40z86edkr11s" }
